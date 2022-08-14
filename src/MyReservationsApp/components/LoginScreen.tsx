@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Wrapper, ComponentWrapper as LoginWrapper } from "./Wrapper";
+import { ForgotPassword as ForgotPasswordComponent } from "./ForgotPassword";
 
 const Heading = styled.h1`
 	font-family: "Arial";
@@ -45,6 +46,7 @@ const ButtonReset = styled.button`
 `;
 const ForgotPassword = styled(ButtonReset)`
 	background-color: transparent;
+
 	color: white;
 `;
 const SignIn = styled(ButtonReset)`
@@ -61,12 +63,13 @@ const CreateAnAccount = styled(Link)`
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 1rem;
-	line-height: 1.2rem;
+	line-height: 1.2;
 	color: white;
 `;
 
 export const LoginScreen = () => {
 	const [activeButton, setActiveButton] = useState<number>(0);
+	const [showForgotPassword, setShowForgotPassword] = useState(false);
 	useEffect(() => {
 		activeButton !== 0 &&
 			setTimeout(() => {
@@ -84,6 +87,7 @@ export const LoginScreen = () => {
 					<ForgotPassword
 						onClick={() => {
 							setActiveButton(1);
+							setShowForgotPassword(true);
 						}}
 						className={clsx(activeButton === 1 && "active")}>
 						Forgot your Password?
@@ -112,6 +116,10 @@ export const LoginScreen = () => {
 					Create an account
 				</CreateAnAccount>
 			</Wrapper>
+			<ForgotPasswordComponent
+				visible={showForgotPassword}
+				setVisible={setShowForgotPassword}
+			/>
 		</>
 	);
 };
