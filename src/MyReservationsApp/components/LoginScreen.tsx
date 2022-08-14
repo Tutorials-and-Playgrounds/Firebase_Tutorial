@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Wrapper, ComponentWrapper as LoginWrapper } from "./Wrapper";
 import { ForgotPassword as ForgotPasswordComponent } from "./ForgotPassword";
+import { Button } from "./Button";
 
 const Heading = styled.h1`
 	font-family: "Arial";
@@ -28,33 +29,12 @@ const PasswordInput = styled(Input)`
 	margin-bottom: 0.5rem;
 `;
 
-const ButtonReset = styled.button`
-	border-radius: 8px;
-	outline: none;
-	border: none;
-	padding: 8px;
-	line-height: 1.2;
-	font-size: 1rem;
-	font-weight: 700;
-	text-transform: uppercase;
-	width: 100%;
-	cursor: pointer;
-	transition: color 0.3s;
-	&.active {
-		color: purple;
-	}
-`;
-const ForgotPassword = styled(ButtonReset)`
+const ForgotPassword = styled(Button)`
 	background-color: transparent;
-
 	color: white;
 `;
-const SignIn = styled(ButtonReset)`
-	background-color: #c3c3c3;
-`;
-const SignInWithGoogle = styled(ButtonReset)`
-	background-color: #00ff0f;
-`;
+const SignIn = styled(Button)``;
+const SignInWithGoogle = styled(Button)``;
 const CreateAnAccount = styled(Link)`
 	width: 40%;
 	cursor: pointer;
@@ -85,6 +65,7 @@ export const LoginScreen = () => {
 					<EmailInput placeholder="someone@gmail.com" />
 					<PasswordInput placeholder="Password" />
 					<ForgotPassword
+						backgroundColor="rgba(0,0,0,0)"
 						onClick={() => {
 							setActiveButton(1);
 							setShowForgotPassword(true);
@@ -93,6 +74,7 @@ export const LoginScreen = () => {
 						Forgot your Password?
 					</ForgotPassword>
 					<SignIn
+						backgroundColor="#c3c3c3"
 						onClick={() => {
 							setActiveButton(2);
 						}}
@@ -100,6 +82,7 @@ export const LoginScreen = () => {
 						Sign in
 					</SignIn>
 					<SignInWithGoogle
+						backgroundColor="#00ff0f"
 						onClick={() => {
 							setActiveButton(3);
 						}}

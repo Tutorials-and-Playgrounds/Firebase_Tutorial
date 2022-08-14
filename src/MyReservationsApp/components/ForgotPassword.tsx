@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 export interface ForgotPasswordProps {
 	visible: boolean;
@@ -43,17 +44,8 @@ const Heading = styled.h1`
 	flex-grow: 1;
 `;
 
-const SendEmail = styled.button`
-	background-color: #00ff0f;
-	border-radius: 8px;
-	outline: none;
-	text-transform: uppercase;
-	border: none;
+const SendEmail = styled(Button)`
 	font-size: 0.875rem;
-	flex-grow: 1;
-	font-weight: 700;
-	cursor: pointer;
-	padding: 8px;
 `;
 
 const EmailInput = styled.input`
@@ -83,7 +75,9 @@ export const ForgotPassword = (props: ForgotPasswordProps) => {
 			<ResetForm>
 				<Heading>Reset Password</Heading>
 				<EmailInput placeholder="Enter your email address" type="email" />
-				<SendEmail>Send Email</SendEmail>
+				<SendEmail onClick={() => {}} backgroundColor="#00ff0f">
+					Send Email
+				</SendEmail>
 			</ResetForm>
 			<Backdrop
 				onClick={() => {

@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import styled from "styled-components";
 import { Wrapper, ComponentWrapper as CreateAccountWrapper } from "./Wrapper";
+import { Button } from "./Button";
 
 const Headline = styled.h1`
 	font-weight: 700;
@@ -49,16 +50,7 @@ const BioInput = styled.textarea`
 	flex: 1;
 `;
 
-const SubmitButton = styled.button`
-	height: 40px;
-	border: none;
-	border-radius: 8px;
-	padding: 8px;
-	font-size: 1rem;
-	font-weight: 700;
-	background-color: #00ff3f;
-	width: 100%;
-`;
+const SubmitButton = styled(Button)``;
 
 export const CreateAccount = () => {
 	const firstNameRef = useRef(null);
@@ -119,7 +111,9 @@ export const CreateAccount = () => {
 						placeholder="Tell others a little bit about yourself!"
 					/>
 				</InputSection>
-				<SubmitButton>Create Account</SubmitButton>
+				<SubmitButton onClick={() => {}} backgroundColor="#00ff3f">
+					Create Account
+				</SubmitButton>
 			</CreateAccountWrapper>
 		</Wrapper>
 	);
